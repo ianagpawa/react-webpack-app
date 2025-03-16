@@ -1,0 +1,10 @@
+{
+    "name": "react-webpack-app",
+    "version": "0.0.1",
+    "author": "ian.agpawa agpawaji@gmail.com",
+    "private": true,
+    "dependencies": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0"
+    }
+}

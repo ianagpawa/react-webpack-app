@@ -1,4 +1,7 @@
 const path = require('path');
+const {
+    port
+} = require('./package.json');
 
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -7,6 +10,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
     entry: './src/index.js',
     mode: 'development',
+    devServer: {
+        port
+    },
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),

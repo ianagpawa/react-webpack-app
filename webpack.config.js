@@ -5,7 +5,7 @@ const {
 
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -14,7 +14,7 @@ module.exports = {
         port
     },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
     },
@@ -41,11 +41,15 @@ module.exports = {
         ],
     },
     plugins: [
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: './src/index.html', to: path.resolve(__dirname, 'dist')}
-            ]
+        new HtmlWebpackPlugin({
+            template: "src/index.html"
         }),
+        // Use to copy assets
+        // new CopyWebpackPlugin({
+        //     patterns: [
+        //         { from: '', to: path.resolve(__dirname, 'dist')}
+        //     ]
+        // }),
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css",
